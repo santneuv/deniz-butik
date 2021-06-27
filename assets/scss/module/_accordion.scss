@@ -1,0 +1,118 @@
+/*----------------------
+    Accordions
+------------------------*/
+.accordion-item {
+
+    @include xs-sm-screens {
+        border-bottom: 1px solid #eee;
+        background-color: $color-white;
+        padding: 0;
+    }
+
+    .accordion-item__header {
+        pointer-events: none;
+
+        @include xs-sm-screens {
+            padding: 16px 15px;
+            pointer-events: auto;
+
+        }
+    }
+
+
+    .accordion-item__title {
+        font-size: 14px;
+        color: #000;
+        font-weight: 600;
+        position: relative;
+        text-transform: uppercase;
+
+        @include xs-sm-screens {
+            cursor: pointer;
+            display: block;
+            position: relative;
+            color: #3c3c3c;
+            font-size: 15px;
+            font-weight: 600;
+
+            &:after {
+                position: absolute;
+                right: 0;
+                top: 0;
+                content: "\f067";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                background-color: transparent;
+                color: $color-secondary;
+                font-size: 10px;
+                text-align: center;
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                border-radius: 3px;
+            }
+
+        }
+
+        &.opened {
+            border-color: $color-primary;
+
+            .accordion-item__header:not(.collapsed) {
+                .accordion-item__title {
+                    color: $color-primary;
+
+                    &:after {
+                        background-color: $color-primary;
+                        color: $color-white;
+                        content: "\f068";
+                    }
+                }
+            }
+        }
+
+
+    }
+
+
+    .accordion-item__body {
+        padding-top: 15px;
+
+        @include xs-sm-screens {
+            padding: 15px;
+            background: #f1f1f1;
+        }
+
+
+        .footer-column-list {
+            .footer-column-list-item {
+                padding: 3px 0;
+
+                @include xs-sm-screens {
+                    padding: 8px 0;
+                }
+
+                a {
+                    width: 100%;
+                    font-size: 12px;
+                    color: #7a7674;
+                    font-weight: 400;
+
+                    @include xs-sm-screens {
+                        color: #535253;
+                        font-size: 14px;
+                    }
+
+                    &:hover {
+                        color: #000;
+                    }
+                }
+
+                i {
+                    width: 27px;
+                    text-align: center;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
